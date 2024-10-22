@@ -17,11 +17,11 @@ public class TestResource {
 	@Path("record")
 	@GET
 	public Response recordProxy() throws NamingException {
-			final String greeting = lookupGreetingBean().greetWithRecord(new RecordGreeting(new Message("Hello record!")));
+		final String greeting = lookupGreetingBean().greetWithRecord(new RecordGreeting(new Message("Hello record!")));
 
-			System.out.println("Received greeting: " + greeting);
+		System.out.println("Received greeting: " + greeting);
 
-			return Response.ok().build();
+		return Response.ok().build();
 	}
 
 	@Path("class")
@@ -40,7 +40,7 @@ public class TestResource {
 		final Context context = new javax.naming.InitialContext(props);
 
 		return (GreetingService) context.lookup(
-				"ejb:" + "test-ear-0.0.1-SNAPSHOT" + "/" + "test-ejb-mod-0.0.1-SNAPSHOT" + "/" + "GreetingServiceImpl"
-						+ "!" + api.GreetingService.class.getName());
+				"ejb:" + "test-ear-0.0.1-SNAPSHOT" + "/" + "test-ejb-mod-0.0.1-SNAPSHOT" + "/" + "GreetingServiceImpl" + "!"
+						+ api.GreetingService.class.getName());
 	}
 }

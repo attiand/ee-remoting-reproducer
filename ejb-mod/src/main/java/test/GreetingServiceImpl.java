@@ -18,6 +18,5 @@ public class GreetingServiceImpl implements GreetingService {
 	public String greetWithClass(ClassGreeting greeting) {
 		System.out.println("Greeting with class: " + greeting.getMessage().getValue());
 		return greeting.getMessage().getValue();
-
 	}
 }

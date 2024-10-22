@@ -9,8 +9,8 @@
 ## deploy
 
 ```bash
-cp test-ear/target/test-ear-0.0.1-SNAPSHOT.ear ~/tools/jboss-eap-8.0/standalone/deployments
-cp test-war/target/test-war-0.0.1-SNAPSHOT.war ~/tools/jboss-eap-8.0/standalone/deployments
+cp test-ear/target/test-ear-0.0.1-SNAPSHOT.ear ../tools/jboss-eap-8.0/standalone/deployments
+cp test-war/target/test-war-0.0.1-SNAPSHOT.war ../tools/jboss-eap-8.0/standalone/deployments
 ```
 
 ## test
