@@ -24,7 +24,7 @@
 			<dependency>
 				<groupId>org.jboss.bom</groupId>
 				<artifactId>jboss-eap-ee</artifactId>
-				<version>8.0.3.GA-redhat-00006</version>
+				<version>8.0.5.GA-redhat-00001</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -34,7 +34,7 @@
 	<repositories>
 		<repository>
 			<id>central</id>
-			<url>http://repo1.maven.org/maven2</url>
+			<url>https://repo1.maven.org/maven2</url>
 		</repository>
 		<repository>
 			<id>redhat-ga</id>
