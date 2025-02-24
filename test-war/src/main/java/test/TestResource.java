@@ -8,6 +8,7 @@ import api.RecordGreeting;
 import api.GreetingService;
 import api.Message;
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
 
@@ -15,9 +16,29 @@ import jakarta.ws.rs.core.Response;
 public class TestResource {
 
 	@Path("record")
-	@GET
-	public Response recordProxy() throws NamingException {
+	@PUT
+	public Response putRecord() throws NamingException {
 		final String greeting = lookupGreetingBean().greetWithRecord(new RecordGreeting(new Message("Hello record!")));
+
+		System.out.println("Received greeting: " + greeting);
+
+		return Response.ok().build();
+	}
+
+	@Path("record")
+	@GET
+	public Response getRecord() throws NamingException {
+		final RecordGreeting greeting = lookupGreetingBean().fetchWithRecord();
+
+		System.out.println("Fetched record greeting: " + greeting);
+
+		return Response.ok().build();
+	}
+
+	@Path("class")
+	@PUT
+	public Response putClass() throws NamingException {
+		final String greeting = lookupGreetingBean().greetWithClass(new ClassGreeting(new Message("Hello class!")));
 
 		System.out.println("Received greeting: " + greeting);
 
@@ -26,10 +47,10 @@ public class TestResource {
 
 	@Path("class")
 	@GET
-	public Response classProxy() throws NamingException {
-		final String greeting = lookupGreetingBean().greetWithClass(new ClassGreeting(new Message("Hello class!")));
+	public Response getClazz() throws NamingException {
+		final ClassGreeting greeting = lookupGreetingBean().fetchWithClass();
 
-		System.out.println("Received greeting: " + greeting);
+		System.out.println("Fetched class greeting: " + greeting);
 
 		return Response.ok().build();
 	}
